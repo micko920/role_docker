@@ -1,0 +1,4 @@
+---
+- name: restart docker
+  systemd: "name=docker state={{ docker_restart_handler_state }}"
+  when: systemd_pid_1 is defined and systemd_pid_1
