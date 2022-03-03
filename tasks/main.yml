@@ -44,17 +44,6 @@
     name: "{{ docker_packages }}"
     state: present
 
-- name: Install Docker Compose SDK for python.
-  become: true
-  become_user: root
-  pip:
-    name:
-      - docker
-      - docker-compose
-    state: present
-    executable: pip3
-  notify: restart docker
-
 - name: Ensure Docker is started and enabled at boot.
   systemd:
     name: docker
@@ -65,9 +54,3 @@
 - name: Ensure handlers are notified now to avoid firewall conflicts.
   meta: flush_handlers
 
-- include_tasks: docker-compose.yml
-  when: docker_install_compose | bool
-
-
-- include_tasks: docker-users.yml
-  when: docker_users | length > 0
