@@ -2,6 +2,7 @@
 - name: Add the docker group
   group:
     name: "{{ docker_group }}"
+    gid: "{{ docker_gid }}"
     state: present
 
 - name: Ensure docker users are added to the docker group.

@@ -12,6 +12,7 @@ docker_restart_handler_state: restarted
 docker_apt_gpg_key: https://download.docker.com/linux/debian/gpg
 
 docker_group: "docker"
+docker_gid: "998"
 # A list of users who will be added to the docker group.
 docker_users:
   - admin
